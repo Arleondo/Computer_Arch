@@ -37,13 +37,15 @@ string Conv_Binario_16(int n ){
 string Conv_Binario_32(int n ) {
     return bitset<32>(n).to_string();
 }
-string Conv_Binario_64(int n ) {
+string Conv_Binario_64(long int n ) {
     return bitset<64>(n).to_string();
 }
 
 
 int main() {
+
     string check;
+
     while (check!="N") {
         int Number1, Number2 , cant_bit;
         cout<<"Ingresar cantidad de bits (16,32,64):";
@@ -57,22 +59,41 @@ int main() {
 
         int product = Multiplicar(Number1, Number2, cant_bit);
 
-        cout << "Resultado de la multiplication:" << product << endl;
         if (cant_bit==16){
+            cout << "\"A\" en binary " << Conv_Binario_16(Number1)<<endl;
+            cout << "\"B\" en binary " << Conv_Binario_16(Number2)<<endl;
+            cout << "Resultado de la multiplication:" << product << endl;
             cout << "Resultado en binario:" << Conv_Binario_16(product) << endl;
         }
         else if (cant_bit==32){
+            cout << "\"A\" en binary " << Conv_Binario_32(Number1)<<endl;
+            cout << "\"B\" en binary " << Conv_Binario_32(Number2)<<endl;
+            cout << "Resultado de la multiplication:" << product << endl;
             cout << "Resultado en binario:" << Conv_Binario_32(product) << endl;
         }
         else if (cant_bit==64){
+            cout << "\"A\" en binary " << Conv_Binario_64(Number1)<<endl;
+            cout << "\"B\" en binary " << Conv_Binario_64(Number2)<<endl;
+            cout << "Resultado de la multiplication:" << product << endl;
             cout << "Resultado en binario:" << Conv_Binario_64(product) << endl;
         }
         else {
-            cout<<"Implementacion faltante de valores +64 bits"<< endl;
+            cout<<"Falta de implementacion del valor en bits , o cantidad invalida "<< endl;
+            break;
         }
 
-        cout<<"Desea continuar ??, Y para si , N para no:\t";
-        cin>>check;
+        cout<<"Continuar?? (Y/N) :";
+        cin >> check;
     }
 }
 //Va a dar error solo en el caso que cuando pida los numeros le pases cualquier cosa que no sean numeros
+
+/* Unused code , Implementation failed after 10 tries
+ * if (check!="N" || check!="n" || check!="Y" || check!="y"){
+            cout << "YOU LITTLE PIECE OF . . . NOW SUFFER"<<endl;
+            for (int i=0;i<23568;i++){
+                cout<<"LOLOLOLOLOLOLOLOLLOLOLOLOLOLOLOLOLOLLOLOLOLOLOLOLOLOLOLOLOLOLOL"<<endl;
+            }
+            break;
+        }
+ */
